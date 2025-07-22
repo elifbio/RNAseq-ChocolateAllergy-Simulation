@@ -48,13 +48,24 @@ This step ensures reliable identification of genes that respond to the simulated
 to be reviewed 
 
 # Visualization
+  
+They highlight differentially expressed genes and sample-level patterns.
 
 Two visualizations were used to highlight the results:
 
-- Volcano Plot Highlights genes with significant fold changes and low p-values. Genes such as IL4, IL5, IL13 appeared prominently, indicating Th2-related activation.
+### Volcano Plot
 
-- Heatmap Reveals expression intensity across samples for significant genes. Allergy samples exhibited distinct upregulation in selected markers.
-These plots were generated with Python's matplotlib, seaborn, and statistical libraries.
+This plot illustrates the relationship between log2 fold change and statistical significance for each gene.  
+Genes with strong fold change and low p-value appear in the corners, especially *IL4*, *IL5*, and *IL13*.
+
+![Volcano Plot – Labeled](volcano_plot_labeled.png)
+
+### Heatmap – Significant Genes
+
+This heatmap reveals sample-level expression patterns for genes with adjusted p-values below 0.05.  
+Allergy samples show elevated expression, especially in Th2-related cytokines and chemokines.
+
+![Heatmap – Significant Genes](heatmap_significant_genes.png)
 
 to be reviewed
 
