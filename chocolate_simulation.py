@@ -239,17 +239,13 @@ enr_kegg = gp.enrichr(
     cutoff=0.05  # Adjusted p-value threshold for significance
 )
 
-# Display the top enriched KEGG pathways
-enr_kegg.results.head()
+enr_kegg.results.head() # Display the top enriched KEGG pathways
 
-# Select the top 10 most significant KEGG pathways – sorted by adjusted p-value
-top_kegg = enr_kegg.results.sort_values('Adjusted P-value').head(10)
+top_kegg = enr_kegg.results.sort_values('Adjusted P-value').head(10) # Select the top 10 most significant KEGG pathways – sorted by adjusted p-value
 
-# Set figure size
-plt.figure(figsize=(8, 6))
+plt.figure(figsize=(8, 6)) # Set figure size
 
-# Create a horizontal barplot – visualize pathway significance as -log10(p-adj)
-plt.barh(top_kegg['Term'], -np.log10(top_kegg['Adjusted P-value']), color='salmon')
+plt.barh(top_kegg['Term'], -np.log10(top_kegg['Adjusted P-value']), color='salmon') # Create a horizontal barplot – visualize pathway significance as -log10(p-adj)
 
 # Add x-axis label
 plt.xlabel('-log10(Adjusted P-value)')  # Statistical significance
@@ -257,14 +253,11 @@ plt.xlabel('-log10(Adjusted P-value)')  # Statistical significance
 # Add plot title
 plt.title('Top KEGG Pathways')  # Most enriched biological pathways
 
-# Invert y-axis to show most significant pathway at the top
-plt.gca().invert_yaxis()
+plt.gca().invert_yaxis() # Invert y-axis to show most significant pathway at the top
 
-# Adjust layout for better spacing
-plt.tight_layout()
+plt.tight_layout() # Adjust layout for better spacing
 
-# Display the plot
-plt.show()
+plt.show() # Display the plot
 
 # Reactome pathway enrichment analysis – using gseapy via Enrichr
 
