@@ -67,12 +67,93 @@ Allergy samples show elevated expression, especially in Th2-related cytokines an
 
 ![Heatmap – Significant Genes](heatmap_significant_genes.png)
 
-
-### Functional Enrichment – Barplots
+## Functional Enrichment – Barplots
 Three barplots were generated to visualize the most enriched biological terms and pathways:
 - GO Biological Process: Highlights immune-related processes such as cytokine signaling and cell activation
 - KEGG Pathways: Shows systemic roles like Th2 differentiation and cytokine-cytokine receptor interaction
 - Reactome Pathways: Reveals molecular events including interleukin signaling and STAT phosphorylation
+
+### GO Enrichment Analysis
+
+To identify biological processes associated with the simulated gene expression data, we performed Gene Ontology (GO) enrichment analysis using the `gseapy` Python package.
+
+#### 🔬 Methodology
+- **Tool**: `gseapy.enrichr`
+- **Gene Set**: `GO_Biological_Process_2023`
+- **Input**: `gene_list.txt`
+- **Cutoff**: Adjusted p-value < 0.05
+
+#### 📊 Results
+The top 10 enriched biological processes were visualized using a barplot. Key processes included:
+
+- **Regulation of immune response**
+- **Inflammatory signaling**
+- **Cellular response to cytokine stimulus**
+
+These processes are consistent with the simulated allergy-related gene expression profile.
+
+![GO Barplot](results/go/go_barplot.png)
+
+#### 📁 Output Files
+- `results/go/go_barplot.png`: Barplot of top GO terms  
+- `results/go/enrichr.GO_Biological_Process_2023.enrichr.reports.txt`: Full enrichment results
+
+---
+
+### 🧬 Reactome Pathway Analysis
+
+To further explore the biological context of the significant genes, we conducted Reactome pathway enrichment analysis.
+
+#### 🔬 Methodology
+- **Tool**: `gseapy.enrichr`
+- **Gene Set**: `Reactome_2022`
+- **Input**: `gene_list.txt`
+- **Cutoff**: Adjusted p-value < 0.05
+
+#### 📊 Results
+The top Reactome pathways were visualized using a barplot. Notable pathways included:
+
+- **Interleukin signaling**
+- **Immune system activation**
+- **Signal transduction**
+
+These pathways provide insight into the cellular mechanisms potentially involved in allergic responses.
+
+![Reactome Barplot](results/reactome/reactome_barplot.png)
+
+#### 📁 Output Files
+- `results/reactome/reactome_barplot.png`: Barplot of top Reactome pathways  
+- `results/reactome/enrichr.Reactome_2022.enrichr.reports.txt`: Full enrichment results
+
+---
+
+### 🧪 KEGG Pathway Analysis
+
+To explore the molecular mechanisms underlying the simulated allergy-related gene expression, we performed KEGG pathway enrichment analysis.
+
+#### 🔬 Methodology
+- **Tool**: `gseapy.enrichr`
+- **Gene Set**: `KEGG_2023_Human`
+- **Input**: `gene_list.txt`
+- **Cutoff**: Adjusted p-value < 0.05
+
+#### 📊 Results
+The top 10 enriched KEGG pathways were visualized using a barplot. Notable pathways included:
+
+- **Cytokine-cytokine receptor interaction**
+- **JAK-STAT signaling pathway**
+- **Toll-like receptor signaling**
+- **Allergic response pathways**
+
+These results align with the biological context of the simulated data and suggest potential molecular targets for further investigation.
+
+![KEGG Barplot](results/kegg/kegg_barplot.png)
+
+#### 📁 Output Files
+- `results/kegg/kegg_barplot.png`: Barplot of top KEGG pathways  
+- `results/kegg/enrichr.KEGG_2023_Human.enrichr.reports.txt`: Full enrichment results
+
+---
 
 ## Biological Interpretation
 
