@@ -117,10 +117,10 @@ plt.xlabel('log2 Fold Change')
 plt.ylabel('-log10(p-value)')
 plt.title('Volcano Plot – Chocolate Allergy Simulation')
 plt.grid(True)
-plt.show()
 
 #Save volcano plot
 plt.savefig("volcano_plot.png", dpi=300)
+plt.show()
 
 import matplotlib.pyplot as plt
 
@@ -148,10 +148,10 @@ plt.ylabel('-log10(p-value)')
 plt.title('Volcano Plot – Chocolate Allergy Simulation')
 plt.grid(True)
 plt.tight_layout()
-plt.show()
 
 #Save labeled volcano plot
 plt.savefig("volcano_plot_labeled.png", dpi=300)
+plt.show()
 
 #Why p-value correction is needed?
 #A separate t-test is done for each gene → e.g., 1000 genes → 1000 p-values
@@ -181,16 +181,113 @@ heatmap_data = df_log.loc[selected_genes]
 sns.heatmap(heatmap_data, cmap='magma', annot=True)
 plt.title("Expression Heatmap – Significant Genes")
 plt.tight_layout()
-plt.show()
 
 #Save heatmap visualization
 plt.savefig("heatmap_significant_genes.png", dpi=300)
+plt.show()
 
+# GO and Pathway Analysis – Enrichr-based Gene Ontology Biological Process enrichment
 
+# Install the required package (run in terminal or use !pip in Jupyter/Spyder)
+!pip install gseapy
 
+# Import the gseapy library – enables GO enrichment via Enrichr API
+import gseapy as gp
 
+# Extract the list of significant genes – obtained from differential expression analysis
+gene_list = significant_genes['Gene'].tolist()
+print(gene_list)  # Display the gene list
 
+# Run GO Biological Process enrichment using Enrichr
+enr = gp.enrichr(
+    gene_list=gene_list,  # Input gene list
+    gene_sets=['GO_Biological_Process_2023'],  # Selected GO term set
+    organism='Human',  # Organism of interest
+    outdir='enrichr_results',  # Output directory for results
+    cutoff=0.05  # Adjusted p-value threshold for significance
+)
 
+# Display the top 5 enriched GO terms – includes term name, p-value, gene count, etc.
+enr.results.head()
 
+# Import visualization libraries
+import pandas as pd
+import matplotlib.pyplot as plt
 
-#Final insights and future description
+# Select the top 10 most significant GO terms based on adjusted p-value
+top_terms = enr.results.sort_values('Adjusted P-value').head(10)
+
+# Create a horizontal barplot – visualizing GO term significance as -log10(p-adj)
+plt.figure(figsize=(8, 6))
+plt.barh(top_terms['Term'], -np.log10(top_terms['Adjusted P-value']), color='skyblue')
+plt.xlabel('-log10(Adjusted P-value)')  # X-axis: statistical significance
+plt.title('Top GO Biological Processes')  # Plot title
+plt.gca().invert_yaxis()  # Invert y-axis to show most significant term at the top
+plt.tight_layout()
+plt.show()  # Display the plot
+
+# Alternatively, use gseapy's built-in barplot function – auto-generates the visualization
+gp.barplot(enr.results, title='GO Biological Process Enrichment')
+plt.show()  # Display the second plot
+
+# Run KEGG pathway enrichment analysis using Enrichr via gseapy
+enr_kegg = gp.enrichr(
+    gene_list=gene_list,  # List of significant genes from DE analysis
+    gene_sets=['KEGG_2021_Human'],  # KEGG pathway database for human
+    organism='Human',  # Organism of interest
+    outdir='kegg_results',  # Directory to save results
+    cutoff=0.05  # Adjusted p-value threshold for significance
+)
+
+# Display the top enriched KEGG pathways
+enr_kegg.results.head()
+
+# Select the top 10 most significant KEGG pathways – sorted by adjusted p-value
+top_kegg = enr_kegg.results.sort_values('Adjusted P-value').head(10)
+
+# Set figure size
+plt.figure(figsize=(8, 6))
+
+# Create a horizontal barplot – visualize pathway significance as -log10(p-adj)
+plt.barh(top_kegg['Term'], -np.log10(top_kegg['Adjusted P-value']), color='salmon')
+
+# Add x-axis label
+plt.xlabel('-log10(Adjusted P-value)')  # Statistical significance
+
+# Add plot title
+plt.title('Top KEGG Pathways')  # Most enriched biological pathways
+
+# Invert y-axis to show most significant pathway at the top
+plt.gca().invert_yaxis()
+
+# Adjust layout for better spacing
+plt.tight_layout()
+
+# Display the plot
+plt.show()
+
+# Reactome pathway enrichment analysis – using gseapy via Enrichr
+
+# Run Reactome enrichment with the list of significant genes
+enr_reactome = gp.enrichr(
+    gene_list=gene_list,  # Genes from differential expression analysis
+    gene_sets=['Reactome_2022'],  # Reactome pathway database (2023 version)
+    organism='Human',  # Human-specific pathways
+    outdir='reactome_results',  # Directory to save results
+    cutoff=0.05  # Adjusted p-value threshold for significance
+)
+
+# Display the top 5 enriched Reactome pathways
+enr_reactome.results.head()
+
+# Select the top 10 most significant Reactome pathways
+top_reactome = enr_reactome.results.sort_values('Adjusted P-value').head(10)
+
+# Create a horizontal barplot – visualize pathway significance
+plt.figure(figsize=(8, 6))
+plt.barh(top_reactome['Term'], -np.log10(top_reactome['Adjusted P-value']), color='mediumseagreen')
+plt.xlabel('-log10(Adjusted P-value)')  # Statistical significance
+plt.title('Top Reactome Pathways')  # Most enriched biological pathways
+plt.gca().invert_yaxis()  # Show most significant term at the top
+plt.tight_layout()
+plt.show()
