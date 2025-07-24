@@ -93,6 +93,19 @@ This RNA-seq simulation offers a scaffold for ethical data exploration and pipel
 - Functional enrichment adds a systems-level layer to the analysis, enabling deeper biological interpretation.
 Future directions include integrating GSEA, clustering, and applying the pipeline to real RNA-seq datasets.
 
+## Discussion
+
+This simulation-based RNA-seq project demonstrates how synthetic data can be used to explore biologically meaningful patterns without relying on experimental or animal-derived datasets.  
+The enrichment results—particularly those involving Th2 cytokines and interleukin signaling—align with known allergic response mechanisms, suggesting that even simplified models can reflect real biological logic.
+
+While the dataset is simulated and lacks experimental noise or batch effects, it provides a clean scaffold for testing analysis pipelines and visualizing immune activation.  
+This approach supports ethical innovation by enabling early-stage hypothesis generation and computational prototyping before moving to wet-lab validation.
+
+Importantly, the project highlights the value of scientific storytelling and reproducibility.  
+By documenting each step and visualizing results clearly, it becomes a resource not just for personal learning but for collaborative exploration.
+
+Future work will focus on applying this pipeline to real RNA-seq datasets, integrating GSEA and clustering, and expanding biological annotation through multi-omic data.
+
 ## Technologies Used
 
 - `Python` | `pandas` | `numpy`  
