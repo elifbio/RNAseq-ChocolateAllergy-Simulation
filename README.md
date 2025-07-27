@@ -65,7 +65,7 @@ Genes with strong fold change and low p-value appear in the corners, especially 
 This heatmap reveals sample-level expression patterns for genes with adjusted p-values below 0.05.  
 Allergy samples show elevated expression, especially in Th2-related cytokines and chemokines.
 
-![Heatmap – Significant Genes](heatmap_significant_genes.png)
+![Heatmap – Significant Genes](results/heatmap_gene_expression.png)
 
 ## Functional Enrichment – Barplots
 Three barplots were generated to visualize the most enriched biological terms and pathways:
@@ -92,7 +92,7 @@ The top 10 enriched biological processes were visualized using a barplot. Key pr
 
 These processes are consistent with the simulated allergy-related gene expression profile.
 
-![GO Barplot](results/go/go_barplot.png)
+![GO Barplot](results/go_enrichment_barplot.png)
 
 #### 📁 Output Files
 - `results/go/go_barplot.png`: Barplot of top GO terms  
@@ -119,7 +119,7 @@ The top Reactome pathways were visualized using a barplot. Notable pathways incl
 
 These pathways provide insight into the cellular mechanisms potentially involved in allergic responses.
 
-![Reactome Barplot](results/reactome/reactome_barplot.png)
+![Reactome Barplot](results/reactome_pathway_barplot.png)
 
 #### 📁 Output Files
 - `results/reactome/reactome_barplot.png`: Barplot of top Reactome pathways  
@@ -147,7 +147,7 @@ The top 10 enriched KEGG pathways were visualized using a barplot. Notable pathw
 
 These results align with the biological context of the simulated data and suggest potential molecular targets for further investigation.
 
-![KEGG Barplot](results/kegg/kegg_barplot.png)
+![KEGG Barplot](results/kegg_pathway_barplot.png)
 
 #### 📁 Output Files
 - `results/kegg/kegg_barplot.png`: Barplot of top KEGG pathways  
