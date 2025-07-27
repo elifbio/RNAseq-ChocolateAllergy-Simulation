@@ -58,7 +58,7 @@ Two visualizations were used to highlight the results:
 This plot illustrates the relationship between log2 fold change and statistical significance for each gene.  
 Genes with strong fold change and low p-value appear in the corners, especially *IL4*, *IL5*, and *IL13*.
 
-![Volcano Plot – Labeled](volcano_plot_labeled.png)
+![Volcano Plot – Labeled](results/volcano_plot_significant_genes.png)
 
 ### Heatmap – Significant Genes
 
