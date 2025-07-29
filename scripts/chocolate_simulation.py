@@ -11,10 +11,6 @@ import pandas as pd
 # Fix random seed for simulation
 np.random.seed(42)
 
-# Gene names (personal context can be added if desired)
-genes = ['IL4', 'IL13', 'FCER1A', 'HDC', 'CCL2', 'GENEX']
-
-
 # Gene expression for control and allergy conditions (Poisson distribution)
 
 # Spread lambda values across 6 genes × 3 samples
