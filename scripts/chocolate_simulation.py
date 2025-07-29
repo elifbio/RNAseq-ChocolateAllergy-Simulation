@@ -126,8 +126,8 @@ plt.scatter(results['log2FoldChange'], results['-log10(pValue)'], color='purple'
 
 # Add threshold lines
 plt.axhline(y=-np.log10(0.05), color='gray', linestyle='--')  # p < 0.05
-plt.axvline(x=1, color='gray', linestyle='--')                # FC > 2
-plt.axvline(x=-1, color='gray', linestyle='--')               # FC < 0.5
+plt.axvline(x=1, color='gray', linestyle='--')                # log2FC = 1 → FC ≈ 2 (upregulated threshold)
+plt.axvline(x=-1, color='gray', linestyle='--')               # log2FC = -1 → FC ≈ 0.5 (downregulated threshold)
 
 # Label significant genes
 for i in range(len(results)):
