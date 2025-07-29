@@ -208,3 +208,13 @@ See the [LICENSE](LICENSE) file for full details.
 ## Author
 
 Designed and implemented by **Elif**, with a focus on ethical innovation and meaningful scientific impact.
+
+## Author’s Note
+
+This project reflects a transition from academic writing in genetics—where every statement is backed by citations—to open-source scientific exploration.  
+While not every line includes a reference, the methods and interpretations are grounded in established biological logic and ethical simulation practices.
+
+By simulating gene expression responses without relying on experimental or clinical data, this work embraces ethical innovation.  
+It enables hypothesis generation, pipeline development, and biological storytelling in a responsible and reproducible manner.
+
+This project represents a personal learning journey, blending computational analysis with scientific curiosity.
