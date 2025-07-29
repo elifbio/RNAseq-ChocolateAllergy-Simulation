@@ -199,6 +199,12 @@ Future work will focus on applying this pipeline to real RNA-seq datasets, integ
 This project was developed with support from Microsoft Copilot, an AI companion used to assist with scientific documentation, code structuring, and biological interpretation. Copilot provided guidance on enrichment analysis, visualization techniques, and ethical framing, helping to shape the project into a reproducible and meaningful scientific narrative.
 All scientific decisions, data generation, and final interpretations were made by the author. AI assistance was used as a collaborative tool to enhance clarity, structure, and accessibility—never as a substitute for scientific judgment.
 
+## License
+
+This project is licensed under the MIT License.  
+You are free to use, modify, and distribute the code with proper attribution.  
+See the [LICENSE](LICENSE) file for full details.
+
 ## Author
 
 Designed and implemented by **Elif**, with a focus on ethical innovation and meaningful scientific impact.
