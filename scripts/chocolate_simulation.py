@@ -115,6 +115,11 @@ plt.show()
 # === 9. Gene Ontology Enrichment (Enrichr via gseapy) ===
 gene_list = significant_genes['Gene'].tolist()
 
+# Save significant genes to a text file for enrichment input
+with open("gene_list.txt", "w") as f:
+    for gene in gene_list:
+        f.write(f"{gene}\n")
+        
 if gene_list:
     enr = gp.enrichr(
         gene_list=gene_list,
