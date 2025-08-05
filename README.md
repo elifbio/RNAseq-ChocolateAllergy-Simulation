@@ -1,13 +1,11 @@
 # Chocolate Allergy – RNA-seq Simulation
 
 ## Introduction
-
 A simulated RNA-seq count matrix for genes involved in allergic response, built to explore immune activation in a chocolate allergy scenario.  
 Created as part of a conceptual and ethical exploration in computational biology.
 This project now includes functional enrichment analyses to explore the biological context of simulated gene expression.
 
 ## Purpose
-
 This simulation was designed to:
 - Practice RNA-seq data modeling using Python
 - Explore the biological logic of allergic reactions
@@ -15,7 +13,6 @@ This simulation was designed to:
 - Prepare for future DE analysis with real datasets
 
 ## Methods Used
-
 - Poisson distribution for count data generation
 - Custom λ values for control vs allergy-exposed samples
 - Pandas and NumPy for structuring the data
@@ -24,7 +21,6 @@ This simulation was designed to:
 - Top enriched terms visualized using barplots
 
 ### Files Included
-
 - `chocolate_simulation.py` – Main Python script for data generation  
 - `counts.csv` – Simulated count matrix (optional)  
 - `go_barplot.png` – GO enrichment visualization  
@@ -32,14 +28,11 @@ This simulation was designed to:
 - `reactome_barplot.png` – Reactome pathway enrichment  
 - `gene_list.txt` – Significant genes used in enrichment
 
-
 ## Creative Context
-
 Inspired by the question: "What genes wake up when chocolate triggers an immune reaction?"  
 Blending scientific rigor with intuitive design, this repo reflects a personal learning journey.
 
 ## Data Transformation and Statistical Analyses
-
 A log2 transformation was applied to normalize raw count data and reduce expression scale variance. Samples were grouped as Control and Allergy to reflect contrasting immune environments.
 - T-tests were conducted per gene to detect differential expression.
 - Log2 fold change values were computed between allergy and control groups.
@@ -48,20 +41,17 @@ A log2 transformation was applied to normalize raw count data and reduce express
 This step ensures reliable identification of genes that respond to the simulated allergic condition.
 
 ## Visualization
-  
 They highlight differentially expressed genes and sample-level patterns.
 
 Two visualizations were used to highlight the results:
 
 ### Volcano Plot
-
 This plot illustrates the relationship between log2 fold change and statistical significance for each gene.  
 Genes with strong fold change and low p-value appear in the corners, especially *IL4*, *IL5*, and *IL13*.
 
 ![Volcano Plot – Labeled](results/volcano_plot_significant_genes.png)
 
 ### Heatmap – Significant Genes
-
 This heatmap reveals sample-level expression patterns for genes with adjusted p-values below 0.05.  
 Allergy samples show elevated expression, especially in Th2-related cytokines and chemokines.
 
@@ -74,7 +64,6 @@ Three barplots were generated to visualize the most enriched biological terms an
 - Reactome Pathways: Reveals molecular events including interleukin signaling and STAT phosphorylation
 
 ### GO Enrichment Analysis
-
 To identify biological processes associated with the simulated gene expression data, we performed Gene Ontology (GO) enrichment analysis using the `gseapy` Python package.
 
 #### 🔬 Methodology
@@ -101,7 +90,6 @@ These processes are consistent with the simulated allergy-related gene expressio
 ---
 
 ### 🧬 Reactome Pathway Analysis
-
 To further explore the biological context of the significant genes, we conducted Reactome pathway enrichment analysis.
 
 #### 🔬 Methodology
@@ -128,7 +116,6 @@ These pathways provide insight into the cellular mechanisms potentially involved
 ---
 
 ### 🧪 KEGG Pathway Analysis
-
 To explore the molecular mechanisms underlying the simulated allergy-related gene expression, we performed KEGG pathway enrichment analysis.
 
 #### 🔬 Methodology
@@ -156,7 +143,6 @@ These results align with the biological context of the simulated data and sugges
 ---
 
 ## Biological Interpretation
-
 The expression profiles mimic a typical Th2 immune response seen in allergic reactions:
 - IL4, IL5, IL13: Promote IgE class switching and eosinophil activation
 - CCL17, CCL22: Direct immune cell recruitment to inflamed tissues
@@ -166,7 +152,6 @@ Although based on simulated counts, gene behavior aligns with real biological pa
 - GO terms and pathways consistently point to cytokine activity, immune cell recruitment, and transcriptional regulation—all hallmarks of allergic inflammation.
 
 ## Final Insights and Future Description
-
 This RNA-seq simulation offers a scaffold for ethical data exploration and pipeline prototyping.
 - Enables DE analysis without experimental or animal-derived data
 - Supports scientific storytelling through open and reproducible code
@@ -175,7 +160,6 @@ This RNA-seq simulation offers a scaffold for ethical data exploration and pipel
 Future directions include integrating GSEA, clustering, and applying the pipeline to real RNA-seq datasets.
 
 ## Discussion
-
 This simulation-based RNA-seq project demonstrates how synthetic data can be used to explore biologically meaningful patterns without relying on experimental or animal-derived datasets.  
 The enrichment results—particularly those involving Th2 cytokines and interleukin signaling—align with known allergic response mechanisms, suggesting that even simplified models can reflect real biological logic.
 
@@ -188,7 +172,6 @@ By documenting each step and visualizing results clearly, it becomes a resource 
 Future work will focus on applying this pipeline to real RNA-seq datasets, integrating GSEA and clustering, and expanding biological annotation through multi-omic data.
 
 ## Technologies Used
-
 - `Python` | `pandas` | `numpy`  
 - `scipy.stats` | `matplotlib` | `seaborn`  
 - `statsmodels` – for FDR correction  
@@ -196,21 +179,21 @@ Future work will focus on applying this pipeline to real RNA-seq datasets, integ
 - `matplotlib` – for custom barplot visualizations
 
 ## AI Collaboration Statement
-This project was developed with support from Microsoft Copilot, an AI companion used to assist with scientific documentation, code structuring, and biological interpretation. Copilot provided guidance on enrichment analysis, visualization techniques, and ethical framing, helping to shape the project into a reproducible and meaningful scientific narrative.
-All scientific decisions, data generation, and final interpretations were made by the author. AI assistance was used as a collaborative tool to enhance clarity, structure, and accessibility—never as a substitute for scientific judgment.
+
+This project was developed with the assistance of both **Microsoft Copilot** and **OpenAI's ChatGPT**.  
+Copilot helped with code structuring, suggestions, and scientific documentation, while ChatGPT supported Python debugging, enrichment analysis logic, and clarity in explanations.  
+All scientific decisions, data design, and final interpretations were made solely by the author.  
+AI tools were used as collaborators to enhance productivity and clarity—not as replacements for expert judgment.
 
 ## License
-
 This project is licensed under the MIT License.  
 You are free to use, modify, and distribute the code with proper attribution.  
 See the [LICENSE](LICENSE) file for full details.
 
 ## Author
-
 Designed and implemented by **Elif**, with a focus on ethical innovation and meaningful scientific impact.
 
 ## Author’s Note
-
 This project reflects a transition from academic writing in genetics—where every statement is backed by citations—to open-source scientific exploration.  
 While not every line includes a reference, the methods and interpretations are grounded in established biological logic and ethical simulation practices.
 
